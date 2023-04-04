@@ -18,7 +18,3 @@ if (hourOfDay !== null && minuteOfDay !== null){
     }
     
 }
-
-	
-// console.log(balance.toFixed(2))
-// console.log(salary)
