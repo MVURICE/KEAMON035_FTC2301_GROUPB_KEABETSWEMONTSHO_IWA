@@ -1,5 +1,6 @@
 const nickName= "Timmy";
 const firstName = "Timothy";
+
 if (nickName) {
     console.log(`Good morning, ${nickName}!`);
   } else if (firstName) {
