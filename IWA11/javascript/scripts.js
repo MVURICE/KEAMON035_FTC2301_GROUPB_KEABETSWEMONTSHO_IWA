@@ -1,5 +1,4 @@
 
-
 let root1 = document.querySelector('[data-key="order1"]')
 let biscuits1 = root1.querySelector('.biscuits .count')
 let donuts1 = root1.querySelector('.donuts .count')
@@ -25,13 +24,11 @@ donuts1.textContent = root1.dataset.donuts
 pancakes1.textContent = root1.dataset.pancakes
 status1.textContent = root1.dataset.delivered === "true" ? 'Delivered' : 'Pending'
 
-
 // order2
 biscuits2.textContent = root2.dataset.biscuits,
 donuts2.textContent = root2.dataset.donuts
 pancakes2.textContent = root2.dataset.pancakes,
 status2.textContent = root2.dataset.delivered === "true" ? 'Delivered' : 'Pending'
-
 
 // order3
 biscuits3.textContent = root3.dataset.biscuits
