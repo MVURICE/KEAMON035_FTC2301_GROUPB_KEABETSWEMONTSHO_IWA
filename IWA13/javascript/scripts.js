@@ -7,7 +7,7 @@ let calculated = '1'
 
 const logCalc = () => { 
     const isString = typeof calculated === 'number' 
-    const calculatedAsNumber = isString ? calculated : parseInt(calculated)
+    const calculatedAsNumber = isString ? parseInt(calculated) : calculateds
     calculated = calculatedAsNumber + 1 
 }
 
