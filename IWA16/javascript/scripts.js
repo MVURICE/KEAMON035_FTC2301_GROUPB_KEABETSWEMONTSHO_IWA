@@ -68,6 +68,8 @@ const MONTHS = [
 const createHtml = (athlete) => {
 	// Destructure the properties of the athlete object from the data response
 	const { firstName, surname, id, races } = data.response.data[athlete];
+	
+	
 	// Reverse the order of the races array
 	races.reverse();
 	// Create a Date object from the date property of the first (latest) race
@@ -81,6 +83,7 @@ const createHtml = (athlete) => {
 	// Create an h2 element and set its text content to the athlete's id
 	const title = document.createElement("h2");
 	title.textContent = data.response.data[athlete].id;
+
 	// Append the title element to the fragment
 	fragment.appendChild(title);
   
