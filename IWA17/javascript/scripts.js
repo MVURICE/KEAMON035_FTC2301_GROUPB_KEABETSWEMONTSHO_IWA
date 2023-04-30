@@ -1,444 +1,3 @@
-// const MONTHS = [
-//     'January',
-//     'February',
-//     'March',
-//     'April',
-//     'May',
-//     'June',
-//     'July',
-//     'August',
-//     'September',
-//     'October',
-//     'November',
-//     'December',
-// ]
-
-// const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-
-// // Only edit below 
-
-// const createArray = (length) => {
-//     const result = []
-
-//     for (let i= 0; i< length; i++) {
-//         result.push(undefined)
-//     }
-// }
-
-// const createData = () => {
-//     const current = new Date()
-//     current.setDate(1)
-//     const startDay = current.getDay()
-//     const daysInMonth = getDaysInMonth(current)
-
-//     const weeks = createArray(5)
-//     const days = createArray(7)
-//     let value = null
-
-//     for (weekIndex in weeks) {
-//         value = {
-//             week: parseInt(weekIndex) + 1,
-//             days: []
-//         }
-
-//         for (dayIndex in days) {
-//             value = parseInt(dayIndex) - startDay
-//             isValid = days > 0 && days <= daysInMonth
-
-//             value.days.push({
-// 				dayOfWeek: parseInt(dayIndex) + 1,
-// 				value: isValid ? day : '',
-// 			  });
-//         }
-// 		weeks[weekIndex] = value;
-//     }
-//     console.log(value)
-// 	return weeks;
-// }
-
-// const addCell = (existing, classString, value) => {
-//     const result = /* html */ `
-//         <td class="${classString}">
-//             ${value}
-//         </td>
-
-//         ${existing}
-//     `;
-
-//     return result;
-// };
-  
-// const createHtml = (data) => {
-//     let result = ''
-//     for (let week in data) {
-//         let inner = ""
-//         inner = addCell(inner, 'table__cell table__cell_sidebar', `Week ${data[week].week}`)
-//         for (let dayOfWeek in data[week].days) {
-//             let classString = 'table__cell'
-//             const value = data[week].days[dayOfWeek].value
-//             const isToday = new Date().getDate() === value
-//             const isWeekend = dayOfWeek == 0 || dayOfWeek == 6
-//             const isAlternate = week % 2 == 0
-//             if (isToday) classString = `${classString} table__cell_today`
-//             if (isWeekend) classString = `${classString} table__cell_weekend`
-//             if (isAlternate) classString = `${classString} table__cell_alternate`
-//             inner = addCell(inner, classString, value)
-//         }
-//         result += `<tr>${inner}</tr>`
-//     }
-//     return result
-// }
-
-
-// // Only edit above
-
-// const current = new Date()
-// document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`
-
-// const data = createData()
-// document.querySelector('[data-content]').innerHTML = createHtml(data)
-
-
-
-
-// scripts.js
-
-// const MONTHS = [
-//     'January',
-//     'February',
-//     'March',
-//     'April',
-//     'May',
-//     'June',
-//     'July',
-//     'August',
-//     'September',
-//     'October',
-//     'November',
-//     'December',
-// ]
-
-// const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-
-// // Only edit below 
-
-// const createArray = (length) => {
-//     const result = []
-
-//     for (let i = 0; i < length; i++) { // changed the for loop syntax to fix syntax errors
-//         result.push(null) // added push() method to add null values to the array
-//     }
-
-//     return result // added return statement to return the created array
-// }
-
-// const createData = () => {
-//     const current = new Date() // added parentheses to create a new Date object
-
-//     current.setDate(1)
-
-//     const startDay = current.getDay() // changed day to getDay() to get the day of the week
-//     const daysInMonth = getDaysInMonth(current)
-
-//     const weeks = createArray(5)
-//     const days = createArray(7)
-//     let value = null
-//     const result = []
-
-//     for (let weekIndex = 0; weekIndex < weeks.length; weekIndex++) { // added let keyword to declare the loop variable
-//         value = {
-//             week: weekIndex + 1,
-//             days: []
-//         }
-
-//         for (let dayIndex = 0; dayIndex < days.length; dayIndex++) { // added let keyword to declare the loop variable
-//             const day = dayIndex - startDay + 1
-//             const isValid = day > 0 && day <= daysInMonth
-
-//             value.days.push({
-//                 dayOfWeek: dayIndex + 1,
-//                 value: isValid ? day : null, // changed to ternary operator to set value to null if not valid
-//             })
-//         }
-
-//         result.push(value) // added push() method to add value to the result array
-//     }
-
-//     return result // added return statement to return the created data
-// }
-
-// const addCell = (existing, classString, value) => {
-//     const result = /* html */ `
-//         <td ${classString}>
-//             ${value}
-//         </td>
-
-//         ${existing}
-//     `
-
-//     return result // added return statement to return the created cell
-// }
-
-// const createHtml = (data) => {
-//     let result = ''
-
-//     for (let week of data) { // changed to for...of loop to iterate over the array
-//         let inner = ""
-//         addCell(inner, 'table__cell table__cell_sidebar', `Week ${week.week}`) // changed single quotes to backticks to allow string interpolation
-    
-//         for (let day of week.days) { // changed to for...of loop to iterate over the array of days
-//             let classString = 'table__cell' // declared classString variable
-
-//             const isToday = new Date().toDateString() === new Date(current.getFullYear(), current.getMonth(), day.value).toDateString() // check if the current date is equal to the value date
-//             const isWeekend = day.dayOfWeek === 1 || day.dayOfWeek === 7 // check if the day is a weekend day
-//             const isAlternate = week.week % 2 === 0 // check if the week is alternate
-
-//             if (isToday) classString += ' table__cell_today' // concatenate class name if today
-//             if (isWeekend) classString += ' table__
-
-
-
-
-
-
-
-
-
-
-
-
-
-// scripts.js
-
-// const MONTHS = [
-//     'January',
-//     'February',
-//     'March',
-//     'April',
-//     'May',
-//     'June',
-//     'July',
-//     'August',
-//     'September',
-//     'October',
-//     'November',
-//     'December',
-//   ];
-  
-//   const getDaysInMonth = (date) =>
-//     new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  
-//   // Only edit below
-  
-//   const createArray = (length) => {
-//     const result = [];
-  
-//     for (let i = 0; i < length; i++) {
-//       result.push(null);
-//     }
-  
-//     return result;
-//   };
-  
-//   const createData = () => {
-//     const current = new Date();
-//     current.setDate(1);
-  
-//     const startDay = current.getDay();
-//     const daysInMonth = getDaysInMonth(current);
-  
-//     const weeks = createArray(5);
-//     const days = createArray(7);
-//     let result = [];
-  
-//     for (let weekIndex in weeks) {
-//       let value = {
-//         week: parseInt(weekIndex) + 1,
-//         days: [],
-//       };
-  
-//       for (let dayIndex in days) {
-//         let day = parseInt(dayIndex) - startDay + 1;
-//         let isValid = day > 0 && day <= daysInMonth;
-  
-//         value.days.push({
-//           dayOfWeek: parseInt(dayIndex) + 1,
-//           value: isValid ? day : null,
-//         });
-//       }
-  
-//       result.push(value);
-//     }
-  
-//     return result;
-//   };
-  
-//   const addCell = (existing, classString, value) => {
-//     const result = /* html */ `
-//       <td class="${classString}">
-//         ${value}
-//       </td>
-//       ${existing}`;
-  
-//     return result;
-//   };
-  
-//   const createHtml = (data) => {
-//     let result = '';
-  
-//     for (let { week, days } of data) {
-//       let inner = '';
-//       inner = addCell(inner, 'table__cell table__cell_sidebar', `Week ${week}`);
-  
-//       for (let { dayOfWeek, value } of days) {
-//         let classString = 'table__cell';
-//         let isToday = new Date().getDate() === value;
-//         let isWeekend = dayOfWeek === 1 || dayOfWeek === 7;
-//         let isAlternate = week % 2 === 0;
-  
-//         if (isToday) classString += ' table__cell_today';
-//         if (isWeekend) classString += ' table__cell_weekend';
-//         if (isAlternate) classString += ' table__cell_alternate';
-  
-//         inner = addCell(inner, classString, value || '');
-//       }
-  
-//       result += `<tr>${inner}</tr>`;
-//     }
-  
-//     return result;
-//   };
-  
-//   // Only edit above
-  
-//   const current = new Date();
-//   document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`;
-  
-//   const data = createData();
-//   document.querySelector('[data-content]').innerHTML = createHtml(data);
-  
-
-
-// scripts.js
-
-// const MONTHS = [
-//     "January",
-//     "February",
-//     "March",
-//     "April",
-//     "May",
-//     "June",
-//     "July",
-//     "August",
-//     "September",
-//     "October",
-//     "November",
-//     "December",
-//   ];
-  
-//   const getDaysInMonth = (date) =>
-//     new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  
-//   // Only edit below
-  
-//   const createArray = (length) => {
-//     const result = [];
-  
-//     for (let i = 0; i < length; i++) {
-//       result.push(null);
-//     }
-  
-//     return result;
-//   };
-  
-//   const createData = () => {
-//     const current = new Date();
-//     current.setDate(1);
-  
-//     const startDay = current.getDay();
-//     const daysInMonth = getDaysInMonth(current);
-  
-//     const weeks = createArray(5);
-//     const days = createArray(7);
-  
-//     let value = null;
-//     let result = [];
-  
-//     for (let weekIndex in weeks) {
-//       value = {
-//         week: parseInt(weekIndex) + 1,
-//         days: [],
-//       };
-  
-//       for (let dayIndex in days) {
-//         let day = parseInt(dayIndex) - (startDay + 1);
-//         const isValid = (day > 0) && (day <= daysInMonth);
-  
-//         value.days.push({
-//           dayOfWeek: parseInt(dayIndex) + 1,
-//           value: isValid ? day : null,
-//         });
-//       }
-  
-//       result.push(value);
-//     }
-  
-//     return result;
-//   };
-  
-//   const addCell = (existing, classString, value) => {
-//     const result = /* html */ `
-//       <td class="${classString}">
-//           ${value}
-//       </td>
-//       ${existing}
-//     `;
-//     return result;
-//   };
-  
-//   const createHtml = (data) => {
-//     let result = "";
-  
-//     for (let { week, days } of data) {
-//       let inner = "";
-//       inner = addCell(inner, "table__cell table__cell_sidebar", `Week ${week}`);
-  
-//       for (let { dayOfWeek, value } of days) {
-//         let classString = "table__cell";
-//         const isToday = new Date().getDate() === value;
-//         const isWeekend = dayOfWeek === 1 || dayOfWeek === 7;
-//         const isAlternate = week % 2;
-  
-//         if (isToday) classString += " table__cell_today";
-//         if (isWeekend) classString += " table__cell_weekend";
-//         if (isAlternate) classString += " table__cell_alternate";
-  
-//         inner = addCell(inner, classString, value);
-//       }
-  
-//       result += `<tr>${inner}</tr>`;
-//     }
-  
-//     return result;
-//   };
-  
-//   // Only edit above
-  
-//   const current = new Date();
-//   document.querySelector("[data-title]").innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`;
-  
-//   const data = createData();
-//   document.querySelector("[data-content]").innerHTML = createHtml(data);
-  
-
-
-
-
-
-
-
-
-
 
 const MONTHS = [
     'January',
@@ -453,104 +12,140 @@ const MONTHS = [
     'October',
     'November',
     'December',
-  ];
-  
-  const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  
-  // Fix 1: Corrected syntax of createArray function
-  const createArray = (length) => {
-    const result = [];
-  
-    // Fix 2: Changed the for loop syntax to use proper variable declaration and increment
-    for (let i = 0; i < length; i++) {
-      result.push(null); // Fix 3: Push null into the result array
-    }
-  
+]
+
+const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
+
+// Only edit below 
+
+const createArray = (length) => {
+    const result = []
+
+    for (let i = 0; i <= length - 1; i++) {
+        result.push(null);
+    };
+
     return result;
-  };
-  
-  // Fix 4: Added return statement to createData function
-  const createData = () => {
-    const current = new Date();
-    current.setDate(1);
-  
-    const startDay = current.getDay(); // Fix 5: Changed day to getDay
-    const daysInMonth = getDaysInMonth(current);
-  
-    const weeks = createArray(5);
-    const days = createArray(7);
-    let value = null;
-    const result = [];
-  
-    for (const weekIndex in weeks) {
-      value = {
-        week: parseInt(weekIndex) + 1,
-        days: [],
-      };
-  
-      for (const dayIndex in days) {
-        const day = dayIndex - startDay + 1; // Fix 6: Corrected calculation for day
-        const isValid = day > 0 && day <= daysInMonth;
-  
-        value.days.push({
-          dayOfWeek: parseInt(dayIndex) + 1,
-          value: isValid ? day : '',
-        });
-      }
-  
-      result.push(value); // Fix 7: Push value object into result array
-    }
-  
-    return result;
-  };
-  
-  // Fix 8: Added return statement to addCell function
-  const addCell = (existing, classString, value) => {
-    return /* html */ `
-      <td class="${classString}">
-        ${value}
-      </td>
-      ${existing}
+};
+
+const createData = () => { // Declare a function that creates an array of nested objects containing week number and an array of days for each week.
+    const current = new Date; // Create a new date object with the current date.
+    current.setDate(1); // Set the date to the first of the current month.
+    let startDay = current.getDay(); // Get the day of the week (0-6) for the first day of the month.
+    let daysInMonth = getDaysInMonth(current); // Get the number of days in the current month.
+    const weeks = createArray(6); // Create an array with 6 null values to represent each week of the month.
+    const days = createArray(7); // Create an array with 7 null values to represent each day of the week.
+    let value = null; // Set value to null.
+    let result = []; // Create an empty array to store the result.
+    let day = 0 - startDay; // Calculate the starting day of the week (e.g., Sunday or Monday) by subtracting the day of the week (startDay) from zero.
+
+    for (let weekIndex = 0; weekIndex <= weeks.length - 1; weekIndex++) { // Loop through each week in the weeks array.
+        value = {
+            week: weekIndex + 1, // Add the week number to the value object.
+            days: [], // Add an empty array to the value object to store the days for that week.
+        };
+
+        for (let dayIndex = 0; dayIndex <= days.length - 1; dayIndex++) { // Loop through each day in the days array.
+            day++; // Increment the day.
+            const isValid = (day > 0) && (day <= daysInMonth); // Check if the day is valid (i.e., within the range of days in the month).
+
+            /* Adds the day to the end of the array
+             * so that days are added from right to Left. */
+            value.days.push({ // Add an object to the days array containing the day of the week and the day value (or an empty string if the day is not valid).
+                dayOfWeek: dayIndex,
+                value: isValid ? day : '',
+            });
+        };
+        result.push(value); // Add the value object to the result array.
+    };
+    return result; // Return the result array, which contains an array of week objects.
+};
+
+/*
+This is a function that creates a nested array of objects, where each object represents a week and its days in the month. The function first sets the input date to the first day of the month, then calculates the start day (i.e. the day of the week on which the month starts) and the number of days in the month. It then creates an empty nested array with 6 weeks (as there can be a maximum of 5 weeks in a month), and an empty array with 7 days. It then initializes a counter variable day with a value that is 0 minus the start day (so that the first day of the month starts at index 0 in the days array). It then loops through each week and day, and for each day it pushes an object to the value.days array with the day of the week (0-6) and the day
+*/
+
+
+
+
+
+
+// Define a function to add a cell to an existing HTML string
+// `existing` is the existing HTML string to which the cell should be added
+// `classString` is the string containing the CSS classes for the cell
+// `value` is the value to be displayed inside the cell
+const addCell = (existing, classString, value) => {
+    // Create a new HTML string that includes the cell and the existing HTML
+    const result = /* html */ 
+    `
+        <td ${classString}>
+            ${value}
+        </td>
+
+        ${existing}
     `;
-  };
-  
-  const createHtml = (data) => {
+    
+    // Return the new HTML string
+    return result;
+};
+
+// Define a function to create the HTML table based on the given data
+// `data` is an array of objects, each representing a week of the month
+const createHtml = (data) => {
+    // Initialize an empty string to hold the HTML for the table
     let result = '';
-  
-    for (const { week, days } of data) { // Fix 9: Destructure the data object
-      let inner = '';
-      inner = addCell(inner, 'table__cell table__cell_sidebar', `Week ${week}`); // Fix 10: Template literal for Week string
-  
-      for (const { dayOfWeek, value } of days) { // Fix 11: Destructure the days object
-        let classString = 'table__cell';
-        const isToday = new Date().getDate() === value;
-        const isWeekend = dayOfWeek === 1 || dayOfWeek === 7; // Fix 12: Corrected OR operator
-        const isAlternate = week % 2 === 0; // Fix 13: Corrected modulo operator
-  
-        if (isToday) classString = `${classString} table__cell_today`;
-        if (isWeekend) classString += ' table__cell_weekend'; // Fix 14: Corrected string concatenation
-        if (isAlternate) classString += ' table__cell_alternate'; // Fix 15: Corrected string concatenation
-  
-        inner = addCell(inner, classString, value);
-      }
-  
-      result += `<tr>${inner}</tr>`; // Fix 16: Concatenate inner to result
+
+    // Loop over each week in the data
+    for (let x = 0; x < data.length; x++) {
+        // Initialize an empty string to hold the HTML for the current week
+        let inner = '';
+        // Get the days for the current week
+        const days = data[x].days;
+
+        // Loop over each day in the week, starting from the last day and moving backwards
+        for (let y = days.length - 1; y >= 0; y--) {
+            // Check if the current day is today
+            let isToday = new Date().getDate() === days[y].value;
+            // Check if the current day is a weekend day (Saturday or Sunday)
+            let isWeekend = days[y].dayOfWeek === 0 || days[y].dayOfWeek === 6;
+            // Check if the current week is an "alternate" week (even-numbered weeks)
+            let isAlternate = (data[x].week % 2) === 0;
+
+            // Create a string containing the CSS classes for the current cell
+            let classString = 'class="table__cell';
+            if (isToday) {
+                classString += ' table__cell_today';
+            }
+            if (isWeekend) {
+                classString += ' table__cell_weekend';
+            }
+            if (isAlternate) {
+                classString += ' table__cell_alternate';
+            }
+            classString += '"';
+
+            // Add a cell for the current day to the inner HTML string
+            inner = addCell(inner, classString, days[y].value);
+        }
+
+        // Add a cell for the current week number to the inner HTML string
+        inner = addCell(inner, 'class="table__cell table__cell_sidebar"', `Week ${data[x].week}`);
+
+        // Add a row to the result HTML string, containing the cells for the current week
+        result += '<tr>' + inner + '</tr>';
     }
-  
-    return result; // Fix
-  
-  }
 
-
-  // Only edit above
-  
-  const current = new Date();
-  document.querySelector("[data-title]").innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`;
-  
-  const data = createData();
-  document.querySelector("[data-content]").innerHTML = createHtml(data);
-  
+    // Return the final HTML string for the table
+    return result;
+};
 
 
 
-  
+
+// Only edit above
+
+const current = new Date();
+document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`;
+
+const data = createData();
+document.querySelector('[data-content]').innerHTML = createHtml(data);
