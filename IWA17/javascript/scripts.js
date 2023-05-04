@@ -33,7 +33,7 @@ const createData = () => { // Declare a function that creates an array of nested
     current.setDate(1); // Set the date to the first of the current month.
     let startDay = current.getDay(); // Get the day of the week (0-6) for the first day of the month.
     let daysInMonth = getDaysInMonth(current); // Get the number of days in the current month.
-    const weeks = createArray(6); // Create an array with 6 null values to represent each week of the month.
+    const weeks = createArray(5); // Create an array with 6 null values to represent each week of the month.
     const days = createArray(7); // Create an array with 7 null values to represent each day of the week.
     let value = null; // Set value to null.
     let result = []; // Create an empty array to store the result.
@@ -64,8 +64,6 @@ const createData = () => { // Declare a function that creates an array of nested
 /*
 This is a function that creates a nested array of objects, where each object represents a week and its days in the month. The function first sets the input date to the first day of the month, then calculates the start day (i.e. the day of the week on which the month starts) and the number of days in the month. It then creates an empty nested array with 6 weeks (as there can be a maximum of 5 weeks in a month), and an empty array with 7 days. It then initializes a counter variable day with a value that is 0 minus the start day (so that the first day of the month starts at index 0 in the days array). It then loops through each week and day, and for each day it pushes an object to the value.days array with the day of the week (0-6) and the day
 */
-
-
 
 
 

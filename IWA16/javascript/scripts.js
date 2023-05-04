@@ -72,8 +72,10 @@ const createHtml = (athlete) => {
 	
 	// Reverse the order of the races array
 	races.reverse();
+	
 	// Create a Date object from the date property of the first (latest) race
 	const latestDate = new Date(races[0].date);
+
 	// Get the time property of the first (latest) race
 	const latestTime = races[0].time;
   
